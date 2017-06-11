@@ -6,6 +6,12 @@ namespace MyHealthBlog.Domain
 {
    public class FoodCategory
     {
+        public FoodCategory()
+        {
+            Recipes = new List<Recipe>();
+            FoodObjects = new List<FoodObject>();
+            Articles = new List<Article>();
+        }
         public int Id { get; set; }
         public Type FoodType { get; set; }
         public string ImgUrl { get; set; }

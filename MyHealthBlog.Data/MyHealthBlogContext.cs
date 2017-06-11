@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyHealthBlog.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyHealthBlog.Data
 {
@@ -12,5 +9,11 @@ namespace MyHealthBlog.Data
         public DbSet<FoodObject> FoodObjects { get; set; }
         public DbSet<FoodCategory> FoodCategories { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ArticleRecipe>().HasKey(k => new { k.ArticleId, k.RecipeId });
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
