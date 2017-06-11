@@ -6,6 +6,7 @@ namespace MyHealthBlog.Domain
 {
     public class Recipe
     {
+
         public int Id { get; set; }
         public string Category { get; set; }
         public string Name { get; set; }
@@ -14,6 +15,6 @@ namespace MyHealthBlog.Domain
         public string Notes { get; set; }
         public string ImgUrl { get; set; }
         public int FoodCategoryId { get; set; }
-        public List<ArticleRecipe> ArticleRecipes { get; set; }
+
     }
 }

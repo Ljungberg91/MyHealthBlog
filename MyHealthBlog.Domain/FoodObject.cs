@@ -6,7 +6,7 @@ namespace MyHealthBlog.Domain
 {
     public class FoodObject
     {
-        public int FoodObjectId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int CaloriesPer100g { get; set; }
         public int Fat { get; set; }

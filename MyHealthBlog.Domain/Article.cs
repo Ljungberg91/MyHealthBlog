@@ -13,6 +13,6 @@ namespace MyHealthBlog.Domain
         public string Content { get; set; }
         public string NotesAndLinks { get; set; }
         public int FoodCategoryId { get; set; }
-        public List<ArticleRecipe> ArticleRecipes { get; set; }
+
     }
 }

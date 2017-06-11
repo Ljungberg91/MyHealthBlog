@@ -10,10 +10,15 @@ namespace MyHealthBlog.Data
         public DbSet<FoodCategory> FoodCategories { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            modelBuilder.Entity<ArticleRecipe>().HasKey(k => new { k.ArticleId, k.RecipeId });
-            base.OnModelCreating(modelBuilder);
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = HealthBlogDb; Trusted_Connection = True;");
         }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<ArticleRecipe>().HasKey(k => new { k.RecipeId, k.ArticleId });
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }
