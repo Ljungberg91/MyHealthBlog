@@ -16,6 +16,7 @@ namespace MyHealthBlog.Domain
         public string Links { get; set; }
         public string ImageUrl { get; set; }
         public int FoodCategoryId { get; set; }
+        public virtual FoodCategory Category { get; set; }
     }
 }
         

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using MyHealthBlog.Data.IRepos;
+using MyHealthBlog.Data.Repos;
 namespace MyHealthBlog
 {
     public class Startup
@@ -28,6 +25,7 @@ namespace MyHealthBlog
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddTransient<IFoodRepo, FoodRepo>();
             services.AddMvc();
         }
 
