@@ -1,0 +1,37 @@
+﻿@using MyHealthBlog.ViewModels
+@model CrudRoute
+
+
+<h2>Crud routing</h2>
+<br />
+
+<form asp-controller="Admin" asp-action="RouteToCrud">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label>Controller :</label>
+            <select name="ObjectController" class="form-control">
+                <option value="Food">FoodObject</option>
+                <option value="Article">Article</option>
+                <option value="FoodCategory">FoodCategory</option>
+                <option value="Recipe">Recipe</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Crud Action :</label>
+            <select name="CrudAction" class="form-control">
+                <option value="Create">Create</option>
+                <option value="Details">Read</option>
+                <option value="Update">Update</option>
+                <option value="Delete">Delete</option>
+            </select>
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" value="RouteToCrud">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+

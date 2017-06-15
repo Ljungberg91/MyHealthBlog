@@ -45,11 +45,19 @@ namespace MyHealthBlog.Data.Repos
             return _context.FoodObjects.FirstOrDefault(f => f.Id == foodId);
         }
 
+        public void AddCategory(FoodCategory category)
+        {
+             category =  new FoodCategory { FoodType = Domain.Type.Berries };
+            _context.FoodCategories.Add(category);
+        }
 
+       
         public void Save()
         {
             _context.SaveChanges();
         }
+
+       
     }
 }
 

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyHealthBlog.Data\MyHealthBlog.Data.csproj" />
+    <ProjectReference Include="..\MyHealthBlog.Domain\MyHealthBlog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

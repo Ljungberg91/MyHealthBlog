@@ -25,7 +25,7 @@ namespace MyHealthBlog
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddTransient<IFoodRepo, FoodRepo>();
+            //services.AddTransient<IFoodRepo, FoodRepo>();
             services.AddMvc();
         }
 
