@@ -1,5 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using MyHealthBlog.Domain
+@model FoodCategory
+
+
+<h2>Create</h2>
+<form asp-action="Create">
+
+    <div class="form-horizontal">
+        <h4>FoodCategory</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="FoodType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="FoodType" class="form-control">
+                    <option value="Berries">Berries</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Grains">Grains</option>
+                    <option value="Meats">Meats</option>
+                    <option value="Fish">Fish</option>
+                </select>
+                <span asp-validation-for="FoodType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImgUrl" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ImgUrl" class="form-control" />
+                <span asp-validation-for="ImgUrl" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    <a asp-controller="Home" asp-action="Index">Homepage</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

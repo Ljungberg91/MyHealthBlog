@@ -35,10 +35,15 @@ namespace MyHealthBlog.Controllers
         [HttpPost]
         public IActionResult Create(FoodObject food)
         {
+            if(food == null)
+            {
+                return NotFound("Could not create object.");
+            }
+
             _foodRepo.Create(food);
             _foodRepo.Save();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
     }
 }
