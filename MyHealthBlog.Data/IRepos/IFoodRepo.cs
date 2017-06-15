@@ -9,7 +9,7 @@ namespace MyHealthBlog.Data.IRepos
     {
         IEnumerable<FoodObject> GetAllFoodObjects { get; }
         FoodObject GetFoodById(int foodId);
-        void Add(FoodObject foodObject);
+        void Create(FoodObject foodObject);
         void Update(FoodObject foodObject);
         void Delete(FoodObject foodObject);
         void Save();

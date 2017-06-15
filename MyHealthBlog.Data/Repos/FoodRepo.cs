@@ -11,11 +11,11 @@ namespace MyHealthBlog.Data.Repos
     {
         private readonly MyHealthBlogContext _context;
 
-        public FoodRepo(MyHealthBlogContext context)
+        public FoodRepo(/*MyHealthBlogContext context*/)
         {
-            _context = context;
+            _context = new MyHealthBlogContext();
         }
-        public void Add(FoodObject foodObject)
+        public void Create(FoodObject foodObject)
         {
             _context.FoodObjects.Add(foodObject);
         }
