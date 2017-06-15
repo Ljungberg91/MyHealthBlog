@@ -1,0 +1,11 @@
+﻿@using MyHealthBlog.ViewModels
+@model FoodList
+
+<h2>Delete</h2>
+
+<div class="row">
+    @foreach (var food in Model.ListOfFoods)
+    {
+        @Html.Partial("FoodMin", food)
+    }
+</div>

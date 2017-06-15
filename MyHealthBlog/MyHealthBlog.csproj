@@ -26,5 +26,8 @@
     <ProjectReference Include="..\MyHealthBlog.Data\MyHealthBlog.Data.csproj" />
     <ProjectReference Include="..\MyHealthBlog.Domain\MyHealthBlog.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Components\" />
+  </ItemGroup>
 
 </Project>

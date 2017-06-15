@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using MyHealthBlog.Data.IRepos;
+﻿using Microsoft.AspNetCore.Mvc;
 using MyHealthBlog.Domain;
 using MyHealthBlog.Data.Repos;
+using MyHealthBlog.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,7 +31,7 @@ namespace MyHealthBlog.Controllers
         [HttpPost]
         public IActionResult Create(FoodObject food)
         {
-            if(food == null)
+            if (food == null)
             {
                 return NotFound("Could not create object.");
             }
@@ -43,7 +39,28 @@ namespace MyHealthBlog.Controllers
             _foodRepo.Create(food);
             _foodRepo.Save();
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
+        }
+        
+        public IActionResult Delete()
+        {
+            FoodList foodlist = new FoodList();
+            foodlist.ListOfFoods = _foodRepo.GetAllFoodObjects;
+            return View(foodlist);
+        }
+        
+        public IActionResult Delete1(int id)
+        {
+            FoodObject food = _foodRepo.GetFoodById(id);
+
+            if (food == null)
+            {
+                return NotFound("Something went wrong");
+            }
+            _foodRepo.Delete(food);
+            _foodRepo.Save();
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
