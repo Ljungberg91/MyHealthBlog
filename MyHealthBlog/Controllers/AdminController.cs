@@ -14,10 +14,11 @@ namespace MyHealthBlog.Controllers
 
             return View();
         }
-
+       
         public IActionResult RouteToCrud(CrudRoute CrudObejct)
         {
             return RedirectToAction(CrudObejct.Action, CrudObejct.Controller);
         }
+        
     }
 }

@@ -31,6 +31,9 @@ namespace MyHealthBlog.Controllers
         [HttpPost]
         public IActionResult Create(FoodObject food)
         {
+            
+            _foodRepo.NameExists(food.Name);
+
             if (food == null)
             {
                 return NotFound("Could not create object.");
@@ -46,6 +49,7 @@ namespace MyHealthBlog.Controllers
         {
             FoodList foodlist = new FoodList();
             foodlist.ListOfFoods = _foodRepo.GetAllFoodObjects;
+            foodlist.Delete = true;
             return View(foodlist);
         }
         
@@ -62,5 +66,14 @@ namespace MyHealthBlog.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult Update()
+        {
+            FoodList foodlist = new FoodList();
+            foodlist.ListOfFoods = _foodRepo.GetAllFoodObjects;
+            foodlist.Update = true;
+            return View(foodlist);
+        }
     }
 }
+            

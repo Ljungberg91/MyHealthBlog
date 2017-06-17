@@ -51,6 +51,11 @@ namespace MyHealthBlog.Data.Repos
             _context.FoodCategories.Add(category);
         }
 
+        public FoodObject NameExists(string name)
+        {
+            FoodObject exists = _context.FoodObjects.FirstOrDefault(n => n.Name == name);
+            return exists;
+        }
        
         public void Save()
         {
