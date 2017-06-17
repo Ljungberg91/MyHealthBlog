@@ -31,7 +31,7 @@ namespace MyHealthBlog.Controllers
         [HttpPost]
         public IActionResult Create(FoodObject food)
         {
-            
+
             _foodRepo.NameExists(food.Name);
 
             if (food == null)
@@ -44,15 +44,15 @@ namespace MyHealthBlog.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        
+
         public IActionResult Delete()
         {
             FoodList foodlist = new FoodList();
             foodlist.ListOfFoods = _foodRepo.GetAllFoodObjects;
-            foodlist.Delete = true;
+
             return View(foodlist);
         }
-        
+
         public IActionResult Delete1(int id)
         {
             FoodObject food = _foodRepo.GetFoodById(id);
@@ -71,9 +71,20 @@ namespace MyHealthBlog.Controllers
         {
             FoodList foodlist = new FoodList();
             foodlist.ListOfFoods = _foodRepo.GetAllFoodObjects;
-            foodlist.Update = true;
             return View(foodlist);
+        }
+        [HttpGet]
+        public IActionResult UpdateForm(int id)
+        {
+            FoodObject food = _foodRepo.GetFoodById(id);
+            return View(food);
+        }
+        [HttpPost]
+        public IActionResult UpdateForm(FoodObject food)
+        {
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
-            
+
