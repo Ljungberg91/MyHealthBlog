@@ -1,0 +1,15 @@
+﻿@using MyHealthBlog.Domain
+@model FoodCategory
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <h4>@Model.FoodType</h4>
+    <div class="thumbnail">
+        <img src="@Model.ImgUrl" alt="">
+        <div>
+            <p class="button">
+                <a class="btn btn-primary" asp-controller="Category" asp-action="UpdateForm"
+                   asp-route-id="@Model.Id">Update</a>
+            </p>
+        </div>
+    </div>
+</div>

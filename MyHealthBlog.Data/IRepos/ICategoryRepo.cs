@@ -7,8 +7,8 @@ namespace MyHealthBlog.Data.IRepos
 {
     public interface ICategoryRepo
     {
-        IEnumerable<FoodCategory> GetAllFoodObjects { get; }
-        FoodObject GetFoodById(int foodId);
+        IEnumerable<FoodCategory> GetAllCategorys { get; }
+        FoodCategory GetCategoryById(int foodId);
         void Create(FoodCategory category);
         void Update(FoodCategory category);
         void Delete(FoodCategory category);
