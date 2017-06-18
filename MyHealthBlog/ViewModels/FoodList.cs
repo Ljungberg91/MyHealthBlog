@@ -10,5 +10,6 @@ namespace MyHealthBlog.ViewModels
     {
         public IEnumerable<FoodObject> ListOfFoods { get; set; }
         public IEnumerable<FoodCategory> Categorys { get; set; }
+        public IEnumerable<Article> Articles { get; set; }
     }
 }

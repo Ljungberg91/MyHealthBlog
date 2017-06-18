@@ -1,36 +1,39 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyHealthBlog.Data.Repos;
 using MyHealthBlog.Domain;
 using MyHealthBlog.ViewModels;
-using MyHealthBlog.Data.Repos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyHealthBlog.Controllers
 {
-    public class CategoryController : Controller
+    public class ArticleController : Controller
     {
-
         //private readonly GenericRepo<FoodCategory> _genericRepo;
-        private readonly CategoryRepo _categoryRepo;
-        public CategoryController()
+        private readonly ArticleRepo _articleRepo;
+        public ArticleController()
         {
-            _categoryRepo = new CategoryRepo();
+            _articleRepo = new ArticleRepo();
             //_genericRepo = new GenericRepo<FoodCategory>();
         }
         [HttpGet]
         public IActionResult Create()
         {
-            FoodCategory category = new FoodCategory();
+           Article article = new Article();
 
-            return View(category);
+            return View(article);
         }
         [HttpPost]
-        public IActionResult Create(FoodCategory category)
+        public IActionResult Create(Article article)
         {
-            if (category == null)
+            if (article == null)
             {
                 return NotFound("Could not create object.");
             }
-            _categoryRepo.Create(category);
-            _categoryRepo.Save();
+            _articleRepo.Create(article);
+            _articleRepo.Save();
 
             return RedirectToAction("Index", "Home");
         }
@@ -38,21 +41,21 @@ namespace MyHealthBlog.Controllers
         public IActionResult Delete()
         {
             FoodList foodlist = new FoodList();
-            foodlist.Categorys = _categoryRepo.GetAllCategorys;
+            foodlist.Articles = _articleRepo.GetAllArticles;
 
             return View(foodlist);
         }
 
         public IActionResult Delete1(int id)
         {
-            FoodCategory category = _categoryRepo.GetCategoryById(id);
+            Article article = _articleRepo.GetArticleById(id);
 
-            if (category == null)
+            if (article == null)
             {
                 return NotFound("Something went wrong");
             }
-            _categoryRepo.Delete(category);
-            _categoryRepo.Save();
+            _articleRepo.Delete(article);
+            _articleRepo.Save();
 
             return RedirectToAction("Index", "Home");
         }
@@ -60,24 +63,24 @@ namespace MyHealthBlog.Controllers
         public IActionResult Update()
         {
             FoodList foodlist = new FoodList();
-            foodlist.Categorys = _categoryRepo.GetAllCategorys;
+            foodlist.Articles = _articleRepo.GetAllArticles;
             return View(foodlist);
         }
         [HttpGet]
         public IActionResult UpdateForm(int id)
         {
-            FoodCategory category = _categoryRepo.GetCategoryById(id);
-            return View(category);
+            Article article = _articleRepo.GetArticleById(id);
+            return View(article);
         }
         [HttpPost]
-        public IActionResult UpdateForm(FoodCategory category)
+        public IActionResult UpdateForm(Article article)
         {
-            if (category == null)
+            if (article == null)
             {
                 return NotFound("Something went wrong");
             }
-            _categoryRepo.Update(category);
-            _categoryRepo.Save();
+            _articleRepo.Update(article);
+            _articleRepo.Save();
             return RedirectToAction("Index", "Home");
         }
 
@@ -87,15 +90,15 @@ namespace MyHealthBlog.Controllers
         }
 
 
-        public IActionResult Details(FoodCategory category)
+        public IActionResult Details(Article article)
         {
-            FoodCategory fCategory = _categoryRepo.NameExists(category.FoodType.ToString());
-            if (category == null)
+            Article article1 = _articleRepo.NameExists(article.Content);
+            if (article1 == null)
             {
                 return NotFound("Something went wrong");
             }
 
-            return View(fCategory);
+            return View(article1);
         }
     }
 }
