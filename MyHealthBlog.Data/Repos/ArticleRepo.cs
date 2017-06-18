@@ -16,7 +16,13 @@ namespace MyHealthBlog.Data.Repos
             _context = new MyHealthBlogContext();
         }
 
-        public IEnumerable<Article> GetAllArticles => throw new NotImplementedException();
+        public IEnumerable<Article> GetAllArticles
+        {
+            get
+            {
+                return _context.Articles;
+            }
+        }
 
         public void Create(Article article)
         {

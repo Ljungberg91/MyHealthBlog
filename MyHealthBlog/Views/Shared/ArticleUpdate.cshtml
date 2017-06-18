@@ -1,0 +1,16 @@
+﻿@using MyHealthBlog.Domain
+@model Article
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <h4>@Model.HeadLine</h4>
+    <div class="thumbnail">
+        
+        <br />
+        <div>
+            <p class="button">
+                <a class="btn btn-primary" asp-controller="Article" asp-action="UpdateForm"
+                   asp-route-id="@Model.Id">Update</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -92,7 +92,7 @@ namespace MyHealthBlog.Controllers
 
         public IActionResult Details(Article article)
         {
-            Article article1 = _articleRepo.NameExists(article.Content);
+            Article article1 = _articleRepo.NameExists(article.HeadLine);
             if (article1 == null)
             {
                 return NotFound("Something went wrong");

@@ -1,5 +1,18 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using MyHealthBlog.Domain
+@model Article
+<head>
+</head>
+<body>
+    <div class="thumbnail">
+        <h3 style="text-align:center">@Model.HeadLine</h3>
+        <p style="text-align :center">
+            @Model.Content
+        </p>
+
+        <br />
+        <br />
+    </div>
+</body>
+<footer>
+    <a href="@Model.NotesAndLinks" target="_blank">@Model.NotesAndLinks</a>
+</footer>

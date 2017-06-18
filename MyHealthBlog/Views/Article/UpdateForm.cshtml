@@ -1,5 +1,69 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using MyHealthBlog.Domain
+@model Article
+
+
+<h2>Update Entity</h2>
+
+<form asp-action="UpdateForm">
+    <div class="form-horizontal">
+        <h4>Article</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <div class="form-group">
+            <label asp-for="HeadLine" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="HeadLine" class="form-control" />
+                <span asp-validation-for="HeadLine" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Category" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NotesAndLinks" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NotesAndLinks" class="form-control" />
+                <span asp-validation-for="NotesAndLinks" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ReleaseTime" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ReleaseTime" class="form-control" />
+                <span asp-validation-for="ReleaseTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FoodCategoryId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FoodCategoryId" class="form-control" />
+                <span asp-validation-for="FoodCategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Homepage</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
