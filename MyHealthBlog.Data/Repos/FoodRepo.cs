@@ -36,19 +36,12 @@ namespace MyHealthBlog.Data.Repos
 
         public void Update(FoodObject foodObject)
         {
-            FoodObject fObject = _context.FoodObjects.FirstOrDefault(f => f.Id == foodObject.Id);
-            fObject = foodObject;
+            _context.Entry(foodObject).State = EntityState.Modified;
         }
 
         public FoodObject GetFoodById(int foodId)
         {
             return _context.FoodObjects.FirstOrDefault(f => f.Id == foodId);
-        }
-
-        public void AddCategory(FoodCategory category)
-        {
-             category =  new FoodCategory { FoodType = Domain.Type.Berries };
-            _context.FoodCategories.Add(category);
         }
 
         public FoodObject NameExists(string name)

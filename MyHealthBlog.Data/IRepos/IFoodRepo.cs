@@ -13,6 +13,5 @@ namespace MyHealthBlog.Data.IRepos
         void Update(FoodObject foodObject);
         void Delete(FoodObject foodObject);
         void Save();
-        void AddCategory(FoodCategory category);
     }
 }

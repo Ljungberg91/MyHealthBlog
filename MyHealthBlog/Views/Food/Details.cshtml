@@ -1,0 +1,25 @@
+﻿@using MyHealthBlog.Domain
+@model FoodObject
+<head>
+
+</head>
+<body>
+    <div>
+        <img alt="@Model.Name" src=@Model.ImageUrl height="600" width="399">
+        <h3>@Model.Name</h3>
+        <br />
+        <p>
+            Calories per 100g : @Model.CaloriesPer100g
+            Fat     : @Model.Fat
+            Carb    : @Model.Carb
+            Protein : @Model.Protein
+        </p>
+        <br />
+        <p>
+            @Model.Description
+        </p>
+    </div>
+</body>
+<footer>
+    <a href="@Model.Links">@Model.Links</a>
+</footer>

@@ -1,0 +1,22 @@
+﻿@using MyHealthBlog.Domain
+@model FoodObject
+<h2>Get object details</h2>
+<br />
+<form asp-controller ="Food" asp-action="Details">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-md-2 control-label">Name :</label>
+            <div class="col-md-10">
+                <input class="form-control" name="name" type="text" />
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
